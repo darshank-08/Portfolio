@@ -2,7 +2,7 @@ import React from 'react'
 
 const Home = () => {
   return (
-    <div className="mt-4 min-h-screen flex flex-col items-center justify-start dark:bg-gray-950 dark:text-white">
+    <div className="mt-4 min-h-screen flex flex-col items-center justify-start dark:bg-black dark:text-white">
         {/* Hero Section */}
         <div className="flex flex-col items-center justify-center relative min-w-screen min-h-[200px] mt-6">
             <h1 className="text-5xl md:text-7xl font-Space-Grotesk font-bold text-center leading-tight">
