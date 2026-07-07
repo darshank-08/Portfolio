@@ -16,8 +16,15 @@ const Project = () => {
     const CineScope = [
         {icon : "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/960px-React-icon.svg.png"},
         {icon : "https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/css-icon.svg"},
-        {icon : "https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/github-icon.svg"}
+        {icon : "https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/github-icon.svg"},
+        {icon : "https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/vercel-icon.svg"}
+    ]
 
+    const UrbanRides = [
+        {icon : "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/960px-React-icon.svg.png"},
+        {icon : "https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Spring_Boot.svg/1280px-Spring_Boot.svg.png?_=20230616230349"},
+        {icon : "https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/mongodb-icon.svg"},
+        {icon : "https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/vercel-icon.svg"}
     ]
   return (
     <div className="p-3 min-w-screen">
@@ -154,7 +161,69 @@ const Project = () => {
 
                 {/* Row 2: 33% + 66% */}
                 <div className="md:col-span-1 border border-black shadow-[5px_5px_0_#f5d03d] dark:border-amber-50">nf</div>
-                <div className="md:col-span-2 border border-black shadow-[5px_5px_0_#f5d03d] dark:border-amber-50">kj</div>
+
+                {/* urban rides */}
+                <div className="md:col-span-2 border border-black shadow-[5px_5px_0_#f5d03d] dark:border-amber-50">
+                    <div className="flex flex-col md:col-span-2 border-2 border-black shadow-[5px_5px_0_#f5d03d] dark:border-amber-50 bg-white dark:bg-black overflow-hidden">
+                        {/* Project Image */}
+                        <div className="h-[350px] border-b-2 border-black dark:border-amber-50">
+                            <img
+                            className="w-full h-full object-cover"
+                            src="/src/assets/UR.png"
+                            alt="Scout IQ"
+                            />
+                        </div>
+
+                        {/* Content */}
+                        <div className="flex flex-col flex-1 p-5 md:p-6">
+                            <div className="flex gap-3 items-center mb-5">
+                            {UrbanRides.map((t) => (
+                                <div
+                                key={t.name}
+                                className="w-11 h-11 border border-black dark:border-amber-50 p-2 bg-white dark:bg-gray-900"
+                                title={t.name}
+                                >
+                                <img
+                                    src={t.icon}
+                                    alt={t.name}
+                                    className="w-full h-full object-contain"
+                                />
+                                </div>
+                            ))}
+                            </div>
+
+                            <h1 className="w-fit text-3xl md:text-5xl  font-['Roboto_Slab'] font-bold bg-black text-amber-300 px-3 py-1 leading-tight">
+                            Urban Rides
+                            </h1>
+
+                            {/* Description */}
+                            <p className="mt-4 text-gray-950 dark:text-gray-300 max-w-2xl">
+                            Engineered for car bookins for vacation trips, for days or weeks. Intigrated with secure payments. users can browse available cars, apply filters, book cars, and manage their bookings & can earn by listing their cars for rent. While also offering robust features for car owners to manage their listings and bookings.
+                            </p>
+
+                            {/* Bottom Row */}
+                            <div className="mt-auto pt-12 flex items-end justify-between">
+                                <p className="text-sm font-black uppercase tracking-widest text-black dark:text-white">
+                                    04 / Full Stack System
+                                </p>
+
+                                <div className="flex gap-3">
+                                    <a href="https://github.com/darshank-08/urban-ride-website" target="_blank" rel="noreferrer"
+                                        className="w-10 h-10 p-1 border-2 border-black dark:border-amber-50 flex items-center justify-center hover:translate-x-1 hover:-translate-y-1 transition-transform"
+                                    >
+                                        <FaGithub className="w-full h-full" />
+                                    </a>
+                                    <a href="https://urban-rides-website.vercel.app/" target="_blank" rel="noreferrer"
+                                        className="w-10 h-10 border-2 border-amber-50 bg-gray-950 text-amber-50 font-bold dark:border-amber-50 dark:bg-amber-50 dark:text-gray-950 flex items-center justify-center hover:translate-x-1 hover:-translate-y-1 transition-transform"
+                                    >
+                                        <LuArrowUpRight />
+                                    </a>
+                                </div>
+                            
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
         
