@@ -37,11 +37,14 @@ function App() {
             <IoMail />
           </button>
 
+          
+
         </nav>
 
-        {activeSection === 'home' && <Home />}
+        {activeSection === 'home' && (
+          <Home setActiveSection={setActiveSection} />
+        )}
         {activeSection === 'about' && <About />}
-        {activeSection === 'skills' && <Skills />}
         {activeSection === 'projects' && <Project />}
         {activeSection === 'contact' && <Contact />}
     </div>

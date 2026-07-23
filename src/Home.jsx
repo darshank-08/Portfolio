@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Home = () => {
+const Home = ({ setActiveSection }) => {
 
   const Lang = [
     {"icon" : "https://www.svgrepo.com/show/452234/java.svg"},
@@ -27,6 +27,8 @@ const Home = () => {
       {"icon" : "https://img.icons8.com/?size=160&id=EPbEfEa7o8CB&format=png"},
       
     ]
+
+    
   return (
     <div className="mt-4 min-h-screen flex flex-col items-center justify-start dark:bg-black dark:text-white">
         {/* Hero Section */}
@@ -147,13 +149,13 @@ const Home = () => {
               {/* CTA Buttons */}
               <div className="flex flex-wrap gap-5">
 
-                <button
+                <button onClick={() => setActiveSection("projects")}
                   className=" px-6 py-3 bg-yellow-300 text-black font-bold uppercase border-2 shadow-[4px_4px_0px_0px_#fefbee] hover:-translate-y-1 hover:translate-x-1 hover:shadow-none transition-all duration-200 cursor-pointer border-amber-100"
                 >
                   View Projects →
                 </button>
 
-                <button
+                <button onClick={() => window.open("/Resume.pdf", "_blank")}
                   className=" px-6 py-3 bg-black text-white font-bold uppercase
                     border-2 border-white shadow-[4px_4px_0px_0px_#fff] hover:-translate-y-1 hover:translate-x-1 hover:shadow-none transition-all duration-200 cursor-pointer"
                 >
@@ -223,8 +225,8 @@ const Home = () => {
 
           </div>
 
-          {/* Frameworks & Libraries */}
-          <div className="mb-10">
+          {/* Cloud & other  */}
+          <div className="">
 
             <div className="flex items-center mb-5">
               <h3 className="font-mono uppercase tracking-[0.2em] text-xs md:text-sm">
@@ -254,7 +256,6 @@ const Home = () => {
         </section>
 
         <section className="min-w-5/6 mt-16 dark:border-gray-800">
-          <div className="max-w-7xl mx-auto px-4 py-6">
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 font-space-grotesk">
               
               {/* Card 1 */}
@@ -273,7 +274,7 @@ const Home = () => {
               </div>
 
               {/* Card 2 */}
-              <div className="border-2 font-semibold border-black bg-orange-400 text-amber-50 dark:border-white p-6">
+              <div className="border-2 font-semibold text-gray-900 bg-amber-300 border-black p-6">
                 <img
                   src="/src/assets/processor.svg"
                   alt="LeetCode"
@@ -289,7 +290,7 @@ const Home = () => {
 
 
               {/* Card 3 */}
-              <div className="border-2 font-semibold border-black text-gray-900 dark:border-white bg-amber-300 p-6">
+              <div className="border-2 font-semibold border-black bg-orange-400 text-amber-50 p-6">
                 <img
                   src="/src/assets/Java.svg"
                   alt="LeetCode"
@@ -304,7 +305,6 @@ const Home = () => {
               </div>
 
             </div>
-          </div>
         </section>
 
         <footer className='mt-16 flex min-w-full'>
