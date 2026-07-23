@@ -29,7 +29,9 @@ const Project = () => {
   return (
     <div className="p-3 min-w-screen">
         <div className=" min-w-full flex flex-col p-5">
-            <h1 className="text-8xl font-bold mb-4 dark:text-amber-300">Selected <br /> Works</h1>
+            <h1 className="text-8xl font-playfair mb-4 dark:text-amber-300">
+            Selected <br /> Works
+            </h1>
             <p className="text-lg max-w-[50%] dark:text-amber-50">
                 A collection of projects where I design and build scalable, high-performance systems—focused on clean architecture, reliability, and real-world use cases.
             </p>
