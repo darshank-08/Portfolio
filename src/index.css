@@ -1,25 +1,12 @@
 @import "tailwindcss";
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@200;300;400;500;600;700;800;900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900&display=swap');
 
-@variant dark (&:where(.dark, .dark *));
-
-.navBtn {
-  @apply text-2xl px-3 py-2 rounded-full
+@theme {
+  --font-ibm: "IBM Plex Sans", sans-serif;
+  --font-playfair: "Playfair Display", serif;
+  --font-outfit: "Outfit", sans-serif;
+  --font-gummy: "Sour Gummy", sans-serif;
+  --font-pixel: "Geist Pixel", sans-serif;
 }
 
-.navBtn:hover {
-  @apply bg-gray-200 dark:bg-gray-700
-}
 
-.nav-text{
-    @apply absolute
-              top-14
-              opacity-0
-              group-hover:opacity-100
-              transition-all
-              duration-300
-              text-sm
-}
-
+.navBtn { @apply text-2xl px-3 py-2 rounded-full } .navBtn:hover { @apply bg-gray-200 dark:bg-gray-700 } .nav-text{ @apply absolute top-14 opacity-0 group-hover:opacity-100 transition-all duration-300 text-sm }

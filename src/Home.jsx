@@ -167,7 +167,11 @@ const Home = ({ setActiveSection }) => {
             </div>
         </section>
 
-        <section className="w-5/6 mx-auto mt-20 p-6 border-2 md:border-b-4 border-gray-900 dark:border-white">
+        <div className="w-5/6 mt-20 mb-10">
+          <h2 className='text-2xl font-gummy uppercase'>skills :</h2>
+        </div>
+        
+        <section className="w-5/6 mx-auto  p-6 border-2 md:border-b-4 border-gray-900 dark:border-white">
 
           {/* programing Languages */}
           <div className="mb-10">
@@ -184,7 +188,7 @@ const Home = ({ setActiveSection }) => {
               {Lang.map((lang) => (
                 <div
                   key={`backend-${lang.name}`}
-                  className="group flex items-center justify-center w-20 h-20 rounded-lg transition-all duration-300 hover:-translate-y-2 hover:bg-gray-100 dark:hover:bg-zinc-900"
+                  className="group flex items-center justify-center w-20 h-20 rounded-lg transition-all duration-300 hover:-translate-y-2 hover:bg-[#f0fdf4]"
                 >
                   <img
                     src={lang.icon}
@@ -206,13 +210,11 @@ const Home = ({ setActiveSection }) => {
               </h3>
             </div>
 
-            <div
-              className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 xl:grid-cols-8 gap-x-6 gap-y-8 place-items-center"
-            >
+            <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 xl:grid-cols-8 gap-x-6 gap-y-8 place-items-center" >
               {lib.map((lang) => (
                 <div
                   key={`backend-${lang.name}`}
-                  className="group flex items-center justify-center w-20 h-20 rounded-lg transition-all duration-300 hover:-translate-y-2 hover:bg-gray-100 dark:hover:bg-zinc-900"
+                  className="group flex items-center justify-center w-20 h-20 rounded-lg transition-all duration-300 hover:-translate-y-2 hover:bg-gray-100"
                 >
                   <img
                     src={lang.icon}
@@ -240,7 +242,7 @@ const Home = ({ setActiveSection }) => {
               {other.map((lang) => (
                 <div
                   key={`backend-${lang.name}`}
-                  className="group flex items-center justify-center w-20 h-20 rounded-lg transition-all duration-300 hover:-translate-y-2 hover:bg-gray-100 dark:hover:bg-zinc-900"
+                  className="group flex items-center justify-center w-20 h-20 rounded-lg transition-all duration-300 hover:-translate-y-2 hover:bg-gray-100"
                 >
                   <img
                     src={lang.icon}
@@ -253,6 +255,71 @@ const Home = ({ setActiveSection }) => {
 
           </div>
 
+        </section>
+
+        <section className="min-w-5/6 mt-12">
+          <div className="w-5/6 mt-18 mb-12">
+            <h2 className='text-2xl font-gummy uppercase'>Projects Preview:</h2>
+          </div>
+
+          <div className='flex gap-4'>
+
+            {/* scoutIQ */}
+            <div className="relative bg-[#171717] border border-zinc-700 rounded-2xl pt-10 px-6 pb-6 max-w-sm">
+              <img
+                src="https://p7.hiclipart.com/preview/278/313/158/2014-fifa-world-cup-football-adidas-brazuca-world-cup.jpg"
+                alt="ScoutIQ"
+                className="absolute -top-6 left-6 w-12 h-12 bg-[#171717] rounded-full p-1"
+              />
+
+              <h3 className="text-[1.7rem] font-pixel mb-3">
+                ScoutIQ
+              </h3>
+
+              {/* button for git & live */}
+
+              <p className="text-zinc-300 leading-7 text-sm">
+                "A football scouting platform that helps users explore player data,
+                compare performance, and follow the top five European leagues."
+              </p>
+            </div>
+
+            {/* Urban Rides */}
+
+            <div className="relative bg-[#171717] border border-zinc-700 rounded-2xl pt-10 px-6 pb-6 max-w-sm">
+              <img
+                src="https://img.magnific.com/free-vector/hand-drawn-muscle-car-illustration_23-2149432254.jpg?semt=ais_hybrid&w=740&q=80"
+                alt="ScoutIQ"
+                className="absolute -top-6 left-6 w-12 h-12 bg-[#171717] rounded-full p-2"
+              />
+
+              <h3 className="text-[1.7rem] font-pixel mb-3">
+                Urban Rides
+              </h3>
+
+              <p className="text-zinc-300 leading-7 text-sm">
+                "Full-stack car rental application that built for both renters and vehicle owners, with car listing, booking, and management features."
+              </p>
+            </div>
+
+            {/* CineScope */}
+
+            <div className="relative bg-[#171717] border border-zinc-700 rounded-2xl pt-10 px-6 pb-6 max-w-sm">
+              <img
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRjse9DpWitkoMkQYUcgU9lvG9-6rf7xCFw3V4tFtrxyrMjNka5fNXZu2U&s=10"
+                alt="ScoutIQ"
+                className="absolute -top-6 left-6 w-12 h-12 bg-[#171717] rounded-full p-2"
+              />
+
+              <h3 className="text-[1.7rem] font-pixel mb-3">
+                CineScope
+              </h3>
+
+              <p className="text-zinc-300 leading-7 text-sm">
+                "A movie and entertainment platform for discovering films, TV shows, and anime, with watchlists, and detailed content information."
+              </p>
+            </div>
+          </div>
         </section>
 
         <section className="min-w-5/6 mt-16 dark:border-gray-800">
@@ -308,7 +375,7 @@ const Home = ({ setActiveSection }) => {
         </section>
 
         <footer className='mt-16 flex min-w-full'>
-          <div className='bg-gray-800 text-amber-100 flex min-w-full gap-7 justify-center align-center p-4 py-5 text-sm md:text-base dark:bg-yellow-50 *:dark:text-black '>
+          <div className='bg-[#1d293d] text-amber-100 flex min-w-full gap-7 justify-center align-center p-4 py-5 text-sm md:text-base'>
             <p className='text-[1.2rem]'><a href="https://leetcode.com/u/DarshanKaragir/" target="_blank" rel="noopener noreferrer">LeetCode</a></p>
             <p className='text-[1.2rem]'><a href="https://www.linkedin.com/in/darshan-karagir/" target="_blank" rel="noopener noreferrer">LinkedIn</a></p>
             <p className='text-[1.2rem]'><a href="https://github.com/darshank-08" target="_blank" rel="noopener noreferrer">GitHub</a></p>
