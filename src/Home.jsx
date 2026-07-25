@@ -1,4 +1,6 @@
 import React from 'react'
+import { FaGithub } from "react-icons/fa";
+
 
 const Home = ({ setActiveSection }) => {
 
@@ -32,7 +34,7 @@ const Home = ({ setActiveSection }) => {
   return (
     <div className="mt-4 min-h-screen flex flex-col items-center justify-start dark:bg-black dark:text-white">
         {/* Hero Section */}
-        <div className="flex flex-col items-center justify-center relative min-w-screen min-h-[200px] mt-6">
+        <div className="flex flex-col items-center justify-center relative min-w-full min-h-[200px] mt-6">
             <h1 className="text-5xl md:text-7xl font-Space-Grotesk font-bold text-center leading-tight">
               BUILDING
               <br />
@@ -60,7 +62,7 @@ const Home = ({ setActiveSection }) => {
         </section>
 
       {/* Main Content - Code Card & Bio */}
-      <section className="m-12 flex  lg:flex-row gap-8 lg:gap-12 items-center lg:items-start max-w-7xl px-4">
+      <section className="m-12 flex lg:flex-row gap-8 lg:gap-12 items-center lg:items-start max-w-7xl px-4">
             {/* Code Card */}
             <div className="relative w-fit ">
               <div className="absolute inset-0 bg-blue-600 translate-x-3 translate-y-3 rounded-sm"></div>
@@ -141,9 +143,21 @@ const Home = ({ setActiveSection }) => {
                     design while sharpening my problem-solving skills through
                     LeetCode and real-world projects. 
                   </p>
+
+                  {/* Card 1 */}
+                  <div className="flex items-center gap-2 text-[#f0fdf4]">
+                    <img
+                      src="/src/assets/leetcode.svg" 
+                      alt="LeetCode"
+                      className="w-6 h-6"
+                    />
+                    <p className= "text-[1.3rem]">
+                      Solved <span className='leading-none'>100+</span> Leetcode & GFG 
+                    </p>
+                  </div>
                 </div>
 
-                <p className= "text-[1.2rem] font-semibold mt-5 text-amber-50">🟢 Open to work</p>
+                <p className= "text-[1.2rem] font-semibold mt-7 text-amber-50">🟢 Open to work</p>
               </div>
 
               {/* CTA Buttons */}
@@ -167,11 +181,11 @@ const Home = ({ setActiveSection }) => {
             </div>
         </section>
 
-        <div className="w-5/6 mt-20 mb-10">
+        <div className="w-full mt-20 mb-10">
           <h2 className='text-2xl font-gummy uppercase'>skills :</h2>
         </div>
         
-        <section className="w-5/6 mx-auto  p-6 border-2 md:border-b-4 border-gray-900 dark:border-white">
+        <section className="w-full mx-auto p-8 border-2 md:border-b-4 border-gray-900">
 
           {/* programing Languages */}
           <div className="mb-10">
@@ -257,7 +271,7 @@ const Home = ({ setActiveSection }) => {
 
         </section>
 
-        <section className="min-w-5/6 mt-12">
+        <section className="min-w-5/6 my-12">
           <div className="w-5/6 mt-18 mb-12">
             <h2 className='text-2xl font-gummy uppercase'>Projects Preview:</h2>
           </div>
@@ -276,12 +290,47 @@ const Home = ({ setActiveSection }) => {
                 ScoutIQ
               </h3>
 
-              {/* button for git & live */}
-
               <p className="text-zinc-300 leading-7 text-sm">
                 "A football scouting platform that helps users explore player data,
                 compare performance, and follow the top five European leagues."
               </p>
+
+              <div className='flex items-center justify-start gap-4 mt-4'>
+
+                <a
+                  href="https://scout-iq-psi.vercel.app/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className=" inline-flex
+                    items-center
+                    justify-center
+                    px-4
+                    py-2
+                    rounded-md
+                    bg-[#238636]
+                    border
+                    border-[#2ea043]
+                    text-white
+                    text-sm
+                    font-semibold
+                    transition-colors
+                    duration-150
+                    hover:bg-[#2c974b]
+                    active:bg-[#238636]
+                    focus:outline-none
+                    focus:ring-offset-2
+                    focus:ring-offset-[#0d1117]
+                  "
+                >
+                  Live Demo
+                </a>
+
+                <a href="https://github.com/darshank-08/scout-IQ-Backend" target="_blank" rel="noreferrer"
+                className="w-10 h-10 p-1 flex items-center justify-center hover:translate-x-1 hover:-translate-y-1 transition-transform"
+                >
+                  <FaGithub className="w-full h-full" />
+                </a>
+              </div>
             </div>
 
             {/* Urban Rides */}
@@ -300,6 +349,43 @@ const Home = ({ setActiveSection }) => {
               <p className="text-zinc-300 leading-7 text-sm">
                 "Full-stack car rental application that built for both renters and vehicle owners, with car listing, booking, and management features."
               </p>
+
+              <div className='flex items-center justify-start gap-4 mt-4'>
+
+                <a
+                  href="https://urban-rides-website.vercel.app/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className=" inline-flex
+                    items-center
+                    justify-center
+                    px-4
+                    py-2
+                    rounded-md
+                    bg-[#238636]
+                    border
+                    border-[#2ea043]
+                    text-white
+                    text-sm
+                    font-semibold
+                    transition-colors
+                    duration-150
+                    hover:bg-[#2c974b]
+                    active:bg-[#238636]
+                    focus:outline-none
+                    focus:ring-offset-2
+                    focus:ring-offset-[#0d1117]
+                  "
+                >
+                  Live Demo
+                </a>
+
+                <a href="https://github.com/darshank-08/urban-ride-website" target="_blank" rel="noreferrer"
+                className="w-10 h-10 p-1 flex items-center justify-center hover:translate-x-1 hover:-translate-y-1 transition-transform"
+                >
+                  <FaGithub className="w-full h-full" />
+                </a>
+              </div>
             </div>
 
             {/* CineScope */}
@@ -318,62 +404,48 @@ const Home = ({ setActiveSection }) => {
               <p className="text-zinc-300 leading-7 text-sm">
                 "A movie and entertainment platform for discovering films, TV shows, and anime, with watchlists, and detailed content information."
               </p>
+
+              <div className='flex items-center justify-start gap-4 mt-4'>
+
+                <a
+                  href="https://darshank-08.github.io/Cine_Scope/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className=" inline-flex
+                    items-center
+                    justify-center
+                    px-4
+                    py-2
+                    rounded-md
+                    bg-[#238636]
+                    border
+                    border-[#2ea043]
+                    text-white
+                    text-sm
+                    font-semibold
+                    transition-colors
+                    duration-150
+                    hover:bg-[#2c974b]
+                    active:bg-[#238636]
+                    focus:outline-none
+                    focus:ring-offset-2
+                    focus:ring-offset-[#0d1117]
+                  "
+                >
+                  Live Demo
+                </a>
+
+                <a href="https://github.com/darshank-08/Cine_Scope" target="_blank" rel="noreferrer"
+                className="w-10 h-10 p-1 flex items-center justify-center hover:translate-x-1 hover:-translate-y-1 transition-transform"
+                >
+                  <FaGithub className="w-full h-full" />
+                </a>
+              </div>
             </div>
           </div>
         </section>
 
-        <section className="min-w-5/6 mt-16 dark:border-gray-800">
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 font-space-grotesk">
-              
-              {/* Card 1 */}
-              <div className="border-2 font-semibold text-gray-900 bg-amber-50 dark:border-white p-6 ">
-                <img
-                  src="/src/assets/leetcode.svg"
-                  alt="LeetCode"
-                  className="w-10 h-10 mb-6"
-                />
-                <h2 className="text-6xl leading-none">
-                  100+
-                </h2>
-                <p className= "mt-2 uppercase tracking-widest">
-                  Leetcode & GFG solved
-                </p>
-              </div>
-
-              {/* Card 2 */}
-              <div className="border-2 font-semibold text-gray-900 bg-amber-300 border-black p-6">
-                <img
-                  src="/src/assets/processor.svg"
-                  alt="LeetCode"
-                  className="w-10 h-10 mb-6"
-                />
-                <h2 className="text-6xl font-semibold leading-none font-space-grotesk">
-                  4+
-                </h2>
-                <p className="mt-3 uppercase tracking-widest">
-                  Projects_Build
-                </p>
-              </div>
-
-
-              {/* Card 3 */}
-              <div className="border-2 font-semibold border-black bg-orange-400 text-amber-50 p-6">
-                <img
-                  src="/src/assets/Java.svg"
-                  alt="LeetCode"
-                  className="w-10 h-10 mb-6"
-                />
-                <h2 className="text-6xl leading-none">
-                  JAVA
-                </h2>
-                <p className="mt-3 uppercase tracking-widest">
-                  Primary_Language
-                </p>
-              </div>
-
-            </div>
-        </section>
-
+{/* 
         <footer className='mt-16 flex min-w-full'>
           <div className='bg-[#1d293d] text-amber-100 flex min-w-full gap-7 justify-center align-center p-4 py-5 text-sm md:text-base'>
             <p className='text-[1.2rem]'><a href="https://leetcode.com/u/DarshanKaragir/" target="_blank" rel="noopener noreferrer">LeetCode</a></p>
@@ -381,7 +453,7 @@ const Home = ({ setActiveSection }) => {
             <p className='text-[1.2rem]'><a href="https://github.com/darshank-08" target="_blank" rel="noopener noreferrer">GitHub</a></p>
             <p className='text-[1.2rem]'><a href="https://drive.google.com" target="_blank" rel="noopener noreferrer">Resume</a></p>
           </div>
-        </footer>
+        </footer> */}
     </div>
   )
 }
