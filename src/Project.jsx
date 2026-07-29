@@ -33,7 +33,7 @@ const projects = [
     index: '01',
     title: 'Scout IQ',
     type: 'Full-Stack System',
-    image: '/src/assets/SQ.png',
+    image: '/SQ.png',
     description:
       'A scalable web application for football scouting and player statistics — built to handle large datasets and surface real-time insights across performance comparisons, team dynamics, and scouting reports.',
     stack: ['React', 'Spring Boot', 'PostgreSQL', 'Redis', 'AWS'],
@@ -44,7 +44,7 @@ const projects = [
     index: '02',
     title: 'CineScope',
     type: 'Frontend Showcase',
-    image: '/src/assets/Cinescope.png',
+    image: '/Cinescope.png',
     description:
       'A movie & TV discovery app for exploring a huge library of titles and finding your next watch — built with a focus on speed, clarity, and a genuinely usable browsing experience.',
     stack: ['React', 'CSS', 'Vercel'],
@@ -55,7 +55,7 @@ const projects = [
     index: '03',
     title: 'Urban Rides',
     type: 'Full-Stack System',
-    image: '/src/assets/UR.png',
+    image: '/UR.png',
     description:
       'A full-stack car rental platform for renters and owners alike. Renters browse, filter, and book cars for trips lasting days or weeks with secure payments built in; owners get their own tools to list vehicles and manage bookings.',
     stack: ['React', 'Spring Boot', 'MongoDB', 'Vercel'],

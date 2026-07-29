@@ -32,7 +32,7 @@ const Home = ({ setActiveSection }) => {
     {
       title: 'Scout IQ',
       type: 'Full-Stack System',
-      image: '/src/assets/SQ.png',
+      image: '/SQ.png',
       description: 'A football scouting platform for exploring player data, comparing performance, and following the top five European leagues.',
       stack: ['React', 'Spring Boot', 'PostgreSQL'],
       github: 'https://github.com/darshank-08/scout-IQ-Backend',
@@ -41,7 +41,7 @@ const Home = ({ setActiveSection }) => {
     {
       title: 'Urban Rides',
       type: 'Full-Stack System',
-      image: '/src/assets/UR.png',
+      image: '/UR.png',
       description: 'A full-stack car rental app built for both renters and vehicle owners, with listing, booking, and management features.',
       stack: ['React', 'Spring Boot', 'MongoDB'],
       github: 'https://github.com/darshank-08/urban-ride-website',
@@ -50,7 +50,7 @@ const Home = ({ setActiveSection }) => {
     {
       title: 'CineScope',
       type: 'Frontend Showcase',
-      image: '/src/assets/Cinescope.png',
+      image: '/Cinescope.png',
       description: 'A movie & entertainment platform for discovering films, TV shows, and anime, with watchlists and detailed content info.',
       stack: ['React', 'CSS'],
       github: 'https://github.com/darshank-08/Cine_Scope',
