@@ -1,234 +1,222 @@
-import React from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { LuArrowUpRight } from "react-icons/lu";
 import { FaGithub } from "react-icons/fa";
 
+/*
+  PROJECTS — EDITORIAL CASE-STUDY LAYOUT
+  ---------------------------------------
+  A deliberately different register from the punchy neubrutalist blocks
+  used elsewhere: quiet, confident, image-led. Signature move — each
+  project image sits in grayscale by default and blooms into full color
+  on hover, standing in for "here's the work, look closer."
 
-const Project = () => {
+  Still dark to match the rest of the site, but the DNA here is:
+  - hairline dividers instead of hard shadows
+  - serif headline + monospace index/meta labels
+  - one muted accent (brass/gold) instead of primary yellow/blue/red
+  - alternating left/right layout per row, generous whitespace
 
-    const SQ = [
-        {icon : "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/960px-React-icon.svg.png"},
-        {icon : "https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Spring_Boot.svg/1280px-Spring_Boot.svg.png?_=20230616230349"},
-        {icon : "https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Postgresql_elephant.svg/1280px-Postgresql_elephant.svg.png?_=20080116191800"},
-        {icon : "https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/redis-icon.svg"},
-        {icon : "https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/aws-icon.svg"},
-    ]
+  No new dependencies — same IntersectionObserver reveal pattern as
+  your other sections.
+*/
 
-    const CineScope = [
-        {icon : "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/960px-React-icon.svg.png"},
-        {icon : "https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/css-icon.svg"},
-        {icon : "https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/github-icon.svg"},
-        {icon : "https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/vercel-icon.svg"}
-    ]
+const ACCENT = '#c9a24c' // muted brass — distinct from the site's primary yellow
 
-    const UrbanRides = [
-        {icon : "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/960px-React-icon.svg.png"},
-        {icon : "https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Spring_Boot.svg/1280px-Spring_Boot.svg.png?_=20230616230349"},
-        {icon : "https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/mongodb-icon.svg"},
-        {icon : "https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/vercel-icon.svg"}
-    ]
+const useReveal = (threshold = 0.15) => {
+  const ref = useRef(null)
+  const [visible, setVisible] = useState(false)
+
+  useEffect(() => {
+    const node = ref.current
+    if (!node) return
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setVisible(true)
+          observer.unobserve(node)
+        }
+      },
+      { threshold }
+    )
+    observer.observe(node)
+    return () => observer.disconnect()
+  }, [threshold])
+
+  return [ref, visible]
+}
+
+const projects = [
+  {
+    index: '01',
+    title: 'Scout IQ',
+    type: 'Full-Stack System',
+    image: '/src/assets/SQ.png',
+    description:
+      'A scalable web application for football scouting and player statistics — built to handle large datasets and surface real-time insights across performance comparisons, team dynamics, and scouting reports.',
+    stack: ['React', 'Spring Boot', 'PostgreSQL', 'Redis', 'AWS'],
+    github: 'https://github.com/darshank-08/scout-IQ-Backend',
+    live: 'https://scout-iq-psi.vercel.app/',
+  },
+  {
+    index: '02',
+    title: 'CineScope',
+    type: 'Frontend Showcase',
+    image: '/src/assets/Cinescope.png',
+    description:
+      'A movie & TV discovery app for exploring a huge library of titles and finding your next watch — built with a focus on speed, clarity, and a genuinely usable browsing experience.',
+    stack: ['React', 'CSS', 'Vercel'],
+    github: 'https://github.com/darshank-08/Cine_Scope',
+    live: 'https://darshank-08.github.io/Cine_Scope/',
+  },
+  {
+    index: '03',
+    title: 'Urban Rides',
+    type: 'Full-Stack System',
+    image: '/src/assets/UR.png',
+    description:
+      'A full-stack car rental platform for renters and owners alike. Renters browse, filter, and book cars for trips lasting days or weeks with secure payments built in; owners get their own tools to list vehicles and manage bookings.',
+    stack: ['React', 'Spring Boot', 'MongoDB', 'Vercel'],
+    github: 'https://github.com/darshank-08/urban-ride-website',
+    live: 'https://urban-rides-website.vercel.app/',
+  },
+]
+
+const ProjectRow = ({ project, reversed }) => {
+  const [ref, visible] = useReveal(0.1)
+
   return (
-    <div className="p-3 min-w-screen">
-        <div className=" min-w-full flex flex-col p-5">
-            <h1 className="text-8xl font-playfair mb-4 dark:text-amber-300">
-            Selected <br /> Works
-            </h1>
-            <p className="text-lg max-w-[50%] dark:text-amber-50">
-                A collection of projects where I design and build scalable, high-performance systems—focused on clean architecture, reliability, and real-world use cases.
-            </p>
-            {/* <hr className="border border-gray-400 max-w-[50%] mt-2" /> */}
+    <div
+      ref={ref}
+      className={`
+        grid md:grid-cols-2 gap-10 md:gap-16 items-center py-16
+        border-t border-white/10 first:border-t-0
+        transition-all duration-700 ease-out
+        ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}
+      `}
+    >
+      {/* Image */}
+      <div className={`group relative overflow-hidden ${reversed ? 'md:order-2' : 'md:order-1'}`}>
+        <span
+          className="absolute top-4 left-4 z-10 font-mono text-xs tracking-widest text-white/70 bg-black/60 backdrop-blur-sm px-2 py-1"
+        >
+          N°{project.index}
+        </span>
+        <div className="aspect-[5/3] w-full overflow-hidden bg-[#111111]">
+          <img
+            src={project.image}
+            alt={project.title}
+            className="
+              w-full h-full object-cover
+              grayscale-0 contrast-[1.05]
+              transition-all duration-700 ease-out
+              group-hover:scale-100
+            "
+          />
+        </div>
+      </div>
+
+      {/* Text */}
+      <div className={reversed ? 'md:order-1' : 'md:order-2'}>
+        <p className="font-mono text-xs tracking-widest uppercase mb-3" style={{ color: ACCENT }}>
+          {project.type}
+        </p>
+
+        <h3 className="font-playfair text-4xl md:text-5xl font-bold text-gray-100 mb-5">
+          {project.title}
+        </h3>
+
+        <p className="text-gray-400 leading-7 max-w-md mb-6">
+          {project.description}
+        </p>
+
+        <div className="flex flex-wrap gap-2 mb-8">
+          {project.stack.map((tech) => (
+            <span
+              key={tech}
+              className="font-mono text-xs text-gray-400 border border-white/15 rounded-full px-3 py-1"
+            >
+              {tech}
+            </span>
+          ))}
         </div>
 
-        <section className='min-w-full p-5'>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-                {/* scout-IQ */}
-                <div className="flex flex-col md:col-span-2 border-2 border-black shadow-[5px_5px_0_#f5d03d] dark:border-amber-50 bg-white dark:bg-black overflow-hidden">
-                    {/* Project Image */}
-                    <div className="h-[350px] border-b-2 border-black dark:border-amber-50">
-                        <img
-                        className="w-full h-full object-cover"
-                        src="/src/assets/SQ.png"
-                        alt="Scout IQ"
-                        />
-                    </div>
+        <div className="flex items-center gap-8">
+          <a
+            href={project.live}
+            target="_blank"
+            rel="noreferrer"
+            className="group/link inline-flex items-center gap-1.5 text-gray-100 font-medium"
+          >
+            <span className="border-b border-transparent group-hover/link:border-current transition-all duration-200">
+              View Live
+            </span>
+            <LuArrowUpRight className="w-4 h-4 transition-transform duration-200 group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5" />
+          </a>
 
-                    {/* Content */}
-                    <div className="flex flex-col flex-1 p-5 md:p-6">
-                        <div className="flex gap-3 items-center mb-5">
-                        {SQ.map((t) => (
-                            <div
-                            key={t.name}
-                            className="w-11 h-11 border border-black dark:border-amber-50 p-2 bg-white dark:bg-gray-900"
-                            title={t.name}
-                            >
-                            <img
-                                src={t.icon}
-                                alt={t.name}
-                                className="w-full h-full object-contain"
-                            />
-                            </div>
-                        ))}
-                        </div>
+          <a
+            href={project.github}
+            target="_blank"
+            rel="noreferrer"
+            className="group/link inline-flex items-center gap-1.5 text-gray-400 hover:text-gray-100 transition-colors duration-200"
+          >
+            <FaGithub className="w-4 h-4" />
+            <span className="border-b border-transparent group-hover/link:border-current transition-all duration-200">
+              Source
+            </span>
+          </a>
+        </div>
+      </div>
+    </div>
+  )
+}
 
-                        <h1 className="w-fit text-3xl md:text-5xl  font-['Roboto_Slab'] font-bold bg-black text-amber-300 px-3 py-1 leading-tight">
-                        Scout IQ
-                        </h1>
+const Project = () => {
+  const [heroRef, heroVisible] = useReveal()
 
-                        {/* Description */}
-                        <p className="mt-4 text-gray-950 dark:text-gray-300 max-w-2xl">
-                        A scalable web application built for Scouting & Players statistics. This project is designed to handle large datasets and provide real-time insights into players performance & comparisons, team dynamics, and scouting reports. It leverages modern web technologies to ensure a responsive and user-friendly experience.
-                        </p>
+  return (
+    <div className="min-h-screen bg-black text-white px-6 md:px-10">
+      {/* Header */}
+      <div
+        ref={heroRef}
+        className={`
+          max-w-5xl mx-auto pt-20 pb-4
+          transition-all duration-700 ease-out
+          ${heroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}
+        `}
+      >
+        <p className="font-mono text-xs tracking-[0.3em] uppercase text-gray-500 mb-6">
+          Index — 2023 / 2026
+        </p>
+        <h1 className="font-playfair text-5xl md:text-7xl leading-[1.05] text-gray-100">
+          Case studies in
+          <br />
+          <span style={{ color: ACCENT }}>scalable systems.</span>
+        </h1>
+        <p className="text-gray-400 text-base md:text-lg mt-8 max-w-xl leading-7">
+          A closer look at three projects — how each one is built, what it
+          solves, and the tradeoffs behind it.
+        </p>
+      </div>
 
-                        {/* Bottom Row */}
-                        <div className="mt-auto pt-12 flex items-end justify-between">
-                            <p className="text-sm font-black uppercase tracking-widest text-black dark:text-white">
-                                01 / Full Stack System
-                            </p>
+      {/* Case study rows */}
+      <div className="max-w-5xl mx-auto mt-10">
+        {projects.map((project, i) => (
+          <ProjectRow key={project.title} project={project} reversed={i % 2 === 1} />
+        ))}
+      </div>
 
-                            <div className="flex gap-3">
-                                <a href="https://github.com/darshank-08/scout-IQ-Backend" target="_blank" rel="noreferrer"
-                                    className="w-10 h-10 p-1 border-2 border-black dark:border-amber-50 flex items-center justify-center hover:translate-x-1 hover:-translate-y-1 transition-transform"
-                                >
-                                    <FaGithub className="w-full h-full" />
-                                </a>
-                                <a href="https://scout-iq-psi.vercel.app/" target="_blank" rel="noreferrer"
-                                    className="w-10 h-10 border-2 border-amber-50 bg-gray-950 text-amber-50 font-bold dark:border-amber-50 dark:bg-amber-50 dark:text-gray-950 flex items-center justify-center hover:translate-x-1 hover:-translate-y-1 transition-transform"
-                                >
-                                    <LuArrowUpRight />
-                                </a>
-                            </div>
-                        
-                        </div>
-                    </div>
-                </div>
-
-                {/* CineScope */}
-                <div className="md:col-span-1 border border-black shadow-[5px_5px_0_#f5d03d] dark:border-amber-50">
-                    <div className="h-[300px] border-b-2 border-black dark:border-amber-50">
-                        <img
-                        className="w-full h-full object-cover"
-                        src="/src/assets/Cinescope.png"
-                        alt="CineScope"
-                        />
-                    </div>
-
-                    <div className="flex flex-col flex-1 p-5 md:p-6">
-                        <div className="flex gap-3 items-center mb-5">
-                        {CineScope.map((t) => (
-                            <div
-                            key={t.name}
-                            className="w-11 h-11 border border-black dark:border-amber-50 p-2 bg-white dark:bg-gray-900"
-                            title={t.name}
-                            >
-                            <img
-                                src={t.icon}
-                                alt={t.name}
-                                className="w-full h-full object-contain"
-                            />
-                            </div>
-                        ))}
-                        </div>
-
-                        <h1 className="w-fit text-3xl md:text-4xl  font-['Roboto_Slab'] font-bold bg-black text-amber-300 px-3 py-1 leading-tight">
-                        CineScope
-                        </h1>
-
-                        {/* Description */}
-                        <p className="mt-4 text-gray-950 dark:text-gray-300 max-w-2xl">
-                        A movie & TV show discovery web application that allows users to explore a vast collection of movies and TV shows. Helping users find their next favorite entertainment. The application is designed with a focus on user experience and performance.
-                        </p>
-
-                        {/* Bottom Row */}
-                        <div className="mt-auto pt-12 flex items-end justify-between">
-                            <p className="text-sm font-black uppercase tracking-widest text-black dark:text-white">
-                                02 / Frontend 
-                            </p>
-
-                            <div className="flex gap-3 ">
-                                <a href="https://github.com/darshank-08/Cine_Scope" target="_blank" rel="noreferrer"
-                                    className="w-10 h-10 p-1 border-2 border-black dark:border-amber-50 flex items-center justify-center hover:translate-x-1 hover:-translate-y-1 transition-transform"
-                                >
-                                    <FaGithub className="w-full h-full" />
-                                </a>
-                                <a href="https://darshank-08.github.io/Cine_Scope/" target="_blank" rel="noreferrer"
-                                    className="w-10 h-10 border-2 border-amber-50 bg-gray-950 text-amber-50 font-bold dark:border-amber-50 dark:bg-amber-50 dark:text-gray-950 flex items-center justify-center hover:translate-x-1 hover:-translate-y-1 transition-transform"
-                                >
-                                    <LuArrowUpRight />
-                                </a>
-                            </div>
-                        
-                        </div>
-                    </div>
-
-                </div>
-
-                {/* Row 2: 33% + 66% */}
-                <div className="md:col-span-1 border border-black shadow-[5px_5px_0_#f5d03d] dark:border-amber-50">nf</div>
-
-                {/* urban rides */}
-                <div className="md:col-span-2 border border-black shadow-[5px_5px_0_#f5d03d] dark:border-amber-50">
-                    <div className="flex flex-col md:col-span-2 border-2 border-black shadow-[5px_5px_0_#f5d03d] dark:border-amber-50 bg-white dark:bg-black overflow-hidden">
-                        {/* Project Image */}
-                        <div className="h-[350px] border-b-2 border-black dark:border-amber-50">
-                            <img
-                            className="w-full h-full object-cover"
-                            src="/src/assets/UR.png"
-                            alt="Scout IQ"
-                            />
-                        </div>
-
-                        {/* Content */}
-                        <div className="flex flex-col flex-1 p-5 md:p-6">
-                            <div className="flex gap-3 items-center mb-5">
-                            {UrbanRides.map((t) => (
-                                <div
-                                key={t.name}
-                                className="w-11 h-11 border border-black dark:border-amber-50 p-2 bg-white dark:bg-gray-900"
-                                title={t.name}
-                                >
-                                <img
-                                    src={t.icon}
-                                    alt={t.name}
-                                    className="w-full h-full object-contain"
-                                />
-                                </div>
-                            ))}
-                            </div>
-
-                            <h1 className="w-fit text-3xl md:text-5xl  font-['Roboto_Slab'] font-bold bg-black text-amber-300 px-3 py-1 leading-tight">
-                            Urban Rides
-                            </h1>
-
-                            {/* Description */}
-                            <p className="mt-4 text-gray-950 dark:text-gray-300 max-w-2xl">
-                            Engineered for car bookins for vacation trips, for days or weeks. Intigrated with secure payments. users can browse available cars, apply filters, book cars, and manage their bookings & can earn by listing their cars for rent. While also offering robust features for car owners to manage their listings and bookings.
-                            </p>
-
-                            {/* Bottom Row */}
-                            <div className="mt-auto pt-12 flex items-end justify-between">
-                                <p className="text-sm font-black uppercase tracking-widest text-black dark:text-white">
-                                    04 / Full Stack System
-                                </p>
-
-                                <div className="flex gap-3">
-                                    <a href="https://github.com/darshank-08/urban-ride-website" target="_blank" rel="noreferrer"
-                                        className="w-10 h-10 p-1 border-2 border-black dark:border-amber-50 flex items-center justify-center hover:translate-x-1 hover:-translate-y-1 transition-transform"
-                                    >
-                                        <FaGithub className="w-full h-full" />
-                                    </a>
-                                    <a href="https://urban-rides-website.vercel.app/" target="_blank" rel="noreferrer"
-                                        className="w-10 h-10 border-2 border-amber-50 bg-gray-950 text-amber-50 font-bold dark:border-amber-50 dark:bg-amber-50 dark:text-gray-950 flex items-center justify-center hover:translate-x-1 hover:-translate-y-1 transition-transform"
-                                    >
-                                        <LuArrowUpRight />
-                                    </a>
-                                </div>
-                            
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
+      {/* Closing link */}
+      <div className="max-w-5xl mx-auto border-t border-white/10 py-14 flex justify-center">
+        <a
+          href="https://github.com/darshank-08"
+          target="_blank"
+          rel="noreferrer"
+          className="group inline-flex items-center gap-2 font-mono text-sm tracking-widest uppercase text-gray-400 hover:text-gray-100 transition-colors duration-200"
+        >
+          See more on GitHub
+          <LuArrowUpRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1 group-hover:-translate-y-1" />
+        </a>
+      </div>
     </div>
   )
 }
