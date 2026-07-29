@@ -2,25 +2,8 @@ import React, { useEffect, useRef, useState } from 'react'
 import { LuArrowUpRight } from "react-icons/lu";
 import { FaGithub } from "react-icons/fa";
 
-/*
-  PROJECTS — EDITORIAL CASE-STUDY LAYOUT
-  ---------------------------------------
-  A deliberately different register from the punchy neubrutalist blocks
-  used elsewhere: quiet, confident, image-led. Signature move — each
-  project image sits in grayscale by default and blooms into full color
-  on hover, standing in for "here's the work, look closer."
 
-  Still dark to match the rest of the site, but the DNA here is:
-  - hairline dividers instead of hard shadows
-  - serif headline + monospace index/meta labels
-  - one muted accent (brass/gold) instead of primary yellow/blue/red
-  - alternating left/right layout per row, generous whitespace
-
-  No new dependencies — same IntersectionObserver reveal pattern as
-  your other sections.
-*/
-
-const ACCENT = '#c9a24c' // muted brass — distinct from the site's primary yellow
+const ACCENT = '#c9a24c'
 
 const useReveal = (threshold = 0.15) => {
   const ref = useRef(null)

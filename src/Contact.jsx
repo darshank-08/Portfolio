@@ -3,16 +3,6 @@ import { FaGithub, FaLinkedin } from 'react-icons/fa'
 import { SiLeetcode } from 'react-icons/si'
 import { HiOutlineMail } from 'react-icons/hi'
 
-/*
-  CONTACT SECTION
-  ----------------
-  Same neubrutalist dark theme as Home/About:
-  - Uppercase black header + colored underline bar
-  - Hard-shadow cards that lift on hover
-  - Minimal, fast — recruiters should be one click from reaching you
-
-  Replace the TODOs with your real links/email.
-*/
 
 const useReveal = (threshold = 0.15) => {
   const ref = useRef(null)
@@ -37,8 +27,7 @@ const useReveal = (threshold = 0.15) => {
   return [ref, visible]
 }
 
-// TODO: replace with your real info
-const EMAIL = 'darshan.karagir@example.com'
+const EMAIL = 'karagirdarshan1@example.com'
 const LINKS = [
   {
     label: 'GitHub',
@@ -74,7 +63,7 @@ const Contact = () => {
       setCopied(true)
       setTimeout(() => setCopied(false), 2000)
     } catch {
-      // clipboard blocked — fall back to mailto below still works
+      
     }
   }
 

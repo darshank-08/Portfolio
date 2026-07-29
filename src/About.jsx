@@ -3,21 +3,6 @@ import { MdOutlineLocationOn } from "react-icons/md";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { SiGeeksforgeeks } from "react-icons/si";
 
-/*
-  ABOUT SECTION
-  -------------
-  Matches the neubrutalist dark theme from Home.jsx:
-  - Uppercase black headers with a colored underline bar
-  - Hard drop-shadow buttons/cards (shadow-[Npx_Npx_0px_0px_#color])
-  - Slight rotation on accent cards
-  - Monospace touches for a "code" feel
-
-  Replace anything marked TODO with your real info.
-  No extra libraries used — animation is a small IntersectionObserver hook
-  so this drops straight into your existing project.
-*/
-
-// Lightweight scroll-reveal hook — fades + slides an element up once it enters the viewport
 const useReveal = (threshold = 0.15) => {
   const ref = useRef(null)
   const [visible, setVisible] = useState(false)
@@ -41,12 +26,9 @@ const useReveal = (threshold = 0.15) => {
   return [ref, visible]
 }
 
-// TODO: swap PLACEHOLDER_PHOTO for a real image import/path once you have one,
-// e.g. import profilePic from '../assets/profile.jpg'
 const PLACEHOLDER_PHOTO =
   '/PFP.jpg'
 
-// TODO: confirm these links are correct
 const SOCIALS = [
   { icon: FaGithub, href: 'https://github.com/darshank-08', label: 'GitHub' },
   { icon: FaLinkedin, href: 'https://www.linkedin.com/in/darshan-karagir/', label: 'LinkedIn' },

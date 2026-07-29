@@ -3,10 +3,6 @@ import { FaGithub } from "react-icons/fa";
 import { LuArrowUpRight } from "react-icons/lu";
 
 const Home = ({ setActiveSection }) => {
-
-  // TODO: these icon URLs came from icons8 IDs that don't reveal what they are —
-  // fill in the real name for each so labels + alt text are correct.
-  // Java is confirmed from the URL; the rest need your input.
   const Lang = [
     { name: 'Java', icon: "https://www.svgrepo.com/show/452234/java.svg" },
     { name: 'Python', icon: "https://img.icons8.com/?size=96&id=l75OEUJkPAk4&format=png" },
@@ -32,9 +28,6 @@ const Home = ({ setActiveSection }) => {
     { name: 'postman', icon: "https://img.icons8.com/?size=160&id=EPbEfEa7o8CB&format=png" },
   ]
 
-  // TODO: swap these placeholder-looking images for your real project screenshots.
-  // Right now these point at random stock images — recruiters clicking through would see
-  // a soccer ball / car illustration instead of your actual app.
   const previewProjects = [
     {
       title: 'Scout IQ',

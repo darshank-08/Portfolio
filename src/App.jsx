@@ -16,10 +16,8 @@ const getSectionFromHash = () => {
 function App() {
   const [activeSection, setActiveSectionState] = useState(getSectionFromHash)
 
-  // Keep React state in sync with the URL hash — this is what makes
-  // browser Back/Forward move between sections instead of leaving the site.
   useEffect(() => {
-    // Make sure the very first load has a hash to go "back" to
+    
     if (!window.location.hash) {
       window.history.replaceState(null, '', '#home')
     }
@@ -32,8 +30,6 @@ function App() {
     return () => window.removeEventListener('hashchange', handleHashChange)
   }, [])
 
-  // Changing the hash pushes a real history entry — the hashchange
-  // listener above then updates state, so this stays the single source of truth.
   const setActiveSection = (section) => {
     if (window.location.hash.replace('#', '') === section) return
     window.location.hash = section
