@@ -26,7 +26,7 @@ const useReveal = (threshold = 0.15) => {
   return [ref, visible]
 }
 
-const PLACEHOLDER_PHOTO =
+const PFP =
   '/PFP.jpg'
 
 const SOCIALS = [
@@ -38,22 +38,22 @@ const journey = [
   {
     year: '2023',
     title: 'Started the CS foundation',
-    desc: 'Picked up my first coding language, C, and learned the basics of programming. Learned CS fundamentals — DBMS, OS, and Computer Networks.',
+    desc: 'Started programming with C and built a strong foundation in programming fundamentals and problem-solving. Studied core CS subjects including DBMS, Operating Systems, and Computer Networks.',
   },
   {
     year: '2024',
     title: 'Went full-stack',
-    desc: 'Built several end-to-end apps and games with Spring Boot and React. Realized backend was where I wanted to live.',
+    desc: 'Built several end-to-end applications using Spring Boot and React, gaining hands-on experience across frontend and backend development. Over time, I found myself particularly drawn to backend engineering and building scalable server-side systems.',
   },
   {
     year: '2025',
     title: 'Shipped real projects',
-    desc: 'ScoutIQ, Urban Rides, CineScope — took projects from idea to deployed, working product.',
+    desc: 'Built and deployed ScoutIQ, Urban Rides, and CineScope, taking each project from initial idea to a fully functional, working product.',
   },
   {
     year: '2026 — Now',
     title: 'Deep in DSA + System Design',
-    desc: 'Structured prep, 100+ problems solved, sharpening the fundamentals for SDE interviews.',
+    desc: '110+ DSA problems solved and counting — continuously strengthening data structures, algorithms, and problem-solving skills for Technical interviews.',
   },
 ]
 
@@ -114,7 +114,7 @@ const About = ({ setActiveSection }) => {
           <div className="absolute inset-0 bg-blue-600 translate-x-2 translate-y-2 rounded-sm"></div>
           <div className="relative bg-[#111111] border-2 border-white/80 rounded-sm p-6 flex flex-col items-center text-center">
             <img
-              src={PLACEHOLDER_PHOTO}
+              src={PFP}
               alt="Darshan Karagir"
               className="w-25 h-25 rounded-full object-cover border-2  mb-4"
             />
@@ -218,7 +218,7 @@ const About = ({ setActiveSection }) => {
           <p className="text-xs uppercase tracking-widest text-gray-500 mb-2">Beyond code</p>
           <h3 className="text-lg font-bold text-gray-100">Football, games & movies/TV shows</h3>
           <p className="text-gray-400 text-sm mt-1">
-            Guy can't live without football. That's how I got the idea for "ScoutIQ". Love watching movies & playing games in my free time.
+            A guy who can't live without football. That's how I got the idea for "ScoutIQ". Love watching movies & playing games in my free time.
           </p>
         </div>
       </section>

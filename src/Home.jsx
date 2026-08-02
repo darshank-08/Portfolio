@@ -7,7 +7,7 @@ const Home = ({ setActiveSection }) => {
     { name: 'Java', icon: "https://www.svgrepo.com/show/452234/java.svg" },
     { name: 'Python', icon: "https://img.icons8.com/?size=96&id=l75OEUJkPAk4&format=png" },
     { name: 'Javascript', icon: "https://img.icons8.com/?size=96&id=108784&format=png" },
-    { name: 'SQL →', icon: "https://img.icons8.com/?size=96&id=J6KcaRLsTgpZ&format=png" },
+    { name: 'SQL', icon: "https://img.icons8.com/?size=96&id=J6KcaRLsTgpZ&format=png" },
   ]
 
   const lib = [
@@ -227,20 +227,20 @@ const Home = ({ setActiveSection }) => {
 
                 <div className="space-y-6 text-gray-300 text-base md:text-lg leading-8 md:leading-9">
                   <p>
-                    I'm a backend-focused developer who enjoys building APIs,
-                    designing scalable systems, and solving algorithmic problems.
+                    I'm a backend/Fullstack developer who enjoys building APIs,
+                    designing scalable systems & engaging UI's, and solving algorithmic problems.
                   </p>
 
                   <p>
-                    Currently exploring Java, Spring Boot, databases, and system
-                    design while sharpening my problem-solving skills through
+                    Currently exploring Java, Spring Boot, React, Databases, and System
+                    Design while sharpening my problem-solving skills through
                     LeetCode and real-world projects. 
                   </p>
 
                   {/* Card 1 */}
                   <div className="flex items-center gap-2 text-[#f0fdf4]">
                     <img
-                      src="/src/assets/leetcode.svg" 
+                      src="https://upload.wikimedia.org/wikipedia/commons/8/8e/LeetCode_Logo_1.png" 
                       alt="LeetCode"
                       className="w-6 h-6"
                     />
